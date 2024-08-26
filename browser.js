@@ -1,12 +1,13 @@
 // browser.js
 
-document.getElementById('browser-button').addEventListener('click', () => {
-    const browser = document.getElementById('browser');
-    browser.classList.toggle('hidden');
-    if (!browser.classList.contains('hidden')) {
-        initializeBrowser();
-    }
-});
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('browser-button').addEventListener('click', () => {
+        const browser = document.getElementById('browser');
+        browser.classList.toggle('hidden');
+        if (!browser.classList.contains('hidden')) {
+            initializeBrowser();
+        }
+    });
 
 function initializeBrowser() {
     // Define HTML content for the browser

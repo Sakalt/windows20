@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Windows OS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Boot Screen -->
+    <div id="boot-screen">
+        <div id="spinner"></div>
+        <div id="logo">Windows 20</div>
+    </div>
+
+    <!-- Lock Screen -->
+    <div id="lock-screen" class="hidden">
+        <button id="unlock-button">Unlock</button>
+    </div>
+
+    <!-- Main UI -->
+    <div id="main-ui" class="hidden">
+        <!-- Taskbar -->
+        <div id="taskbar">
+            <div id="left-bar">
+                <button class="app-button" id="explorer-button">
+                    <img src="images/explorer-icon.png" alt="エクスプローラー">
+                </button>
+                <button class="app-button" id="browser-button">
+                    <img src="images/browser-icon.png" alt="ブラウザ">
+                </button>
+            </div>
+            <div id="center-bar">
+                <button id="start-menu-button">スタート</button>
+            </div>
+            <div id="right-bar">
+                <button class="action-center-button">アクションセンター</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script src="explorer.js"></script>
+    <script src="browser.js"></script>
+</body>
+</html>

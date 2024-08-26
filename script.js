@@ -4,42 +4,46 @@ window.addEventListener('load', () => {
     const lockScreen = document.getElementById('lock-screen');
     const mainUI = document.getElementById('main-ui');
 
-    // ブート画面の表示とロック画面への切り替え
     if (bootScreen && lockScreen && mainUI) {
-        bootScreen.classList.remove('hidden'); // ブート画面を表示
+        // Boot screen is displayed for 3 seconds
+        bootScreen.classList.remove('hidden');
         setTimeout(() => {
-            bootScreen.classList.add('hidden'); // ブート画面を非表示
-            lockScreen.classList.remove('hidden'); // ロック画面を表示
-            playStartupSound(); // スタートアップ音を再生
-        }, 3000); // 3秒後にロック画面に切り替え
+            bootScreen.classList.add('hidden');  // Hide the boot screen
+            lockScreen.classList.remove('hidden'); // Show the lock screen
+            playStartupSound(); // Play startup sound
+        }, 3000); // Boot screen duration (3 seconds)
     } else {
         console.error('One or more elements are missing.');
     }
 });
 
-// ロック画面のクリックでメインUIに切り替え
-document.getElementById('lock-screen').addEventListener('click', () => {
+// Unlock button functionality
+document.getElementById('unlock-button').addEventListener('click', () => {
     const lockScreen = document.getElementById('lock-screen');
     const mainUI = document.getElementById('main-ui');
 
     if (lockScreen && mainUI) {
-        lockScreen.classList.add('hidden'); // ロック画面を非表示
-        mainUI.classList.remove('hidden'); // メインUIを表示
+        lockScreen.classList.add('hidden');  // Hide the lock screen
+        mainUI.classList.remove('hidden');   // Show the main UI
     } else {
         console.error('One or more elements are missing.');
     }
 });
 
-// スタートメニュー機能
+// Start menu functionality
 document.getElementById('start-menu-button').addEventListener('click', () => {
     const startMenu = document.getElementById('start-menu');
-    startMenu.classList.toggle('hidden');
+    if (startMenu) {
+        startMenu.classList.toggle('hidden');
+    } else {
+        console.error('Start menu element is missing.');
+    }
 });
 
-// スタートアップ音の再生
+// Function to play startup sound
 async function playStartupSound() {
     try {
-        const response = await fetch('sounds/startup-sound.mp3'); // 音声ファイルのパス
+        const response = await fetch('sounds/startup-sound.mp3'); // Path to audio file
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

@@ -9,6 +9,7 @@ window.addEventListener('load', () => {
 
 // Unlock button functionality
 document.getElementById('unlock-button').addEventListener('click', () => {
+    document.getElementById('boot-screen').classList.add('hidden'); // Hide the boot screen
     document.getElementById('lock-screen').classList.add('hidden');
     document.getElementById('main-ui').classList.remove('hidden');
 });

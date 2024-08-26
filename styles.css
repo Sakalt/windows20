@@ -61,8 +61,7 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #1e1e1e;
-    display: flex;
+    background-color: #linear-gradient(45deg, #202020, #363636);
     justify-content: space-between;
     padding: 5px;
 }
@@ -87,11 +86,11 @@ body {
 }
 
 .app-button:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(68, 68, 68, 0.1);
 }
 
 #start-menu-button, .action-center-button {
-    background: linear-gradient(45deg, #1f1f1f, #333);
+    background: linear-gradient(45deg, #242424, #333);
     border: none;
     color: #fff;
     padding: 10px;
@@ -100,14 +99,14 @@ body {
 }
 
 #start-menu-button:hover, .action-center-button:hover {
-    background: linear-gradient(45deg, #333, #1f1f1f);
+    background: linear-gradient(45deg, #333, #242424);
 }
 
 #start-menu {
     position: absolute;
     bottom: 50px;
     left: 0;
-    background-color: #1e1e1e;
+    background-color: #505050;
     width: 200px;
     padding: 10px;
     border-radius: 5px;
@@ -134,7 +133,7 @@ body {
     left: 50px;
     width: 80%;
     height: 80%;
-    background-color: #1e1e1e;
+    background-color: #505050;
     color: #fff;
     border: 1px solid #333;
     border-radius: 5px;
@@ -164,7 +163,7 @@ body {
 
 #browser-controls {
     padding: 10px;
-    background-color: #1e1e1e;
+    background-color: #505050;
     border-bottom: 1px solid #333;
     display: flex;
     align-items: center;
@@ -188,7 +187,7 @@ body {
     left: 50px;
     width: 60%;
     height: 60%;
-    background-color: #1e1e1e;
+    background-color: #505050;
     color: #fff;
     border: 1px solid #333;
     border-radius: 5px;
@@ -229,5 +228,5 @@ body {
 }
 
 .file-item:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(128, 128, 128, 0.1);
 }

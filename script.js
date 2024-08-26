@@ -17,8 +17,8 @@ window.addEventListener('load', () => {
     }
 });
 
-// Unlock button functionality
-document.getElementById('unlock-button').addEventListener('click', () => {
+// ロック画面のクリックでメインUIに切り替え
+document.getElementById('lock-screen').addEventListener('click', () => {
     const lockScreen = document.getElementById('lock-screen');
     const mainUI = document.getElementById('main-ui');
 
@@ -30,13 +30,13 @@ document.getElementById('unlock-button').addEventListener('click', () => {
     }
 });
 
-// Start menu functionality
+// スタートメニュー機能
 document.getElementById('start-menu-button').addEventListener('click', () => {
     const startMenu = document.getElementById('start-menu');
     startMenu.classList.toggle('hidden');
 });
 
-// Function to play startup sound
+// スタートアップ音の再生
 async function playStartupSound() {
     try {
         const response = await fetch('sounds/startup-sound.mp3'); // 音声ファイルのパス

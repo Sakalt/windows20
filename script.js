@@ -4,12 +4,14 @@ window.addEventListener('load', () => {
     const lockScreen = document.getElementById('lock-screen');
     const mainUI = document.getElementById('main-ui');
 
+    // ブート画面の表示とロック画面への切り替え
     if (bootScreen && lockScreen && mainUI) {
+        bootScreen.classList.remove('hidden'); // ブート画面を表示
         setTimeout(() => {
-            bootScreen.classList.add('hidden');
-            lockScreen.classList.remove('hidden');
-            playStartupSound(); // Play startup sound after boot process
-        }, 3000); // Boot screen for 3 seconds
+            bootScreen.classList.add('hidden'); // ブート画面を非表示
+            lockScreen.classList.remove('hidden'); // ロック画面を表示
+            playStartupSound(); // スタートアップ音を再生
+        }, 3000); // 3秒後にロック画面に切り替え
     } else {
         console.error('One or more elements are missing.');
     }
@@ -17,14 +19,12 @@ window.addEventListener('load', () => {
 
 // Unlock button functionality
 document.getElementById('unlock-button').addEventListener('click', () => {
-    const bootScreen = document.getElementById('boot-screen');
     const lockScreen = document.getElementById('lock-screen');
     const mainUI = document.getElementById('main-ui');
 
-    if (bootScreen && lockScreen && mainUI) {
-        bootScreen.classList.add('hidden'); // Hide the boot screen
-        lockScreen.classList.add('hidden');
-        mainUI.classList.remove('hidden');
+    if (lockScreen && mainUI) {
+        lockScreen.classList.add('hidden'); // ロック画面を非表示
+        mainUI.classList.remove('hidden'); // メインUIを表示
     } else {
         console.error('One or more elements are missing.');
     }
@@ -39,7 +39,7 @@ document.getElementById('start-menu-button').addEventListener('click', () => {
 // Function to play startup sound
 async function playStartupSound() {
     try {
-        const response = await fetch('sounds/startup-sound.mp3'); // Path to audio file
+        const response = await fetch('sounds/startup-sound.mp3'); // 音声ファイルのパス
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

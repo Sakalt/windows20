@@ -23,7 +23,10 @@ document.getElementById('start-menu-button').addEventListener('click', () => {
 // Function to play startup sound
 async function playStartupSound() {
     try {
-        const response = await fetch('sounds/startup-sound.mp3'); // Replace with your audio file path
+        const response = await fetch('sounds/startup-sound.mp3'); // Path to audio file
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
         const arrayBuffer = await response.arrayBuffer();
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);

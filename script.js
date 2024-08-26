@@ -1,17 +1,33 @@
 // Simulate boot process
 window.addEventListener('load', () => {
-    setTimeout(() => {
-        document.getElementById('boot-screen').classList.add('hidden');
-        document.getElementById('lock-screen').classList.remove('hidden');
-        playStartupSound(); // Play startup sound after boot process
-    }, 3000); // Boot screen for 3 seconds
+    const bootScreen = document.getElementById('boot-screen');
+    const lockScreen = document.getElementById('lock-screen');
+    const mainUI = document.getElementById('main-ui');
+
+    if (bootScreen && lockScreen && mainUI) {
+        setTimeout(() => {
+            bootScreen.classList.add('hidden');
+            lockScreen.classList.remove('hidden');
+            playStartupSound(); // Play startup sound after boot process
+        }, 3000); // Boot screen for 3 seconds
+    } else {
+        console.error('One or more elements are missing.');
+    }
 });
 
 // Unlock button functionality
 document.getElementById('unlock-button').addEventListener('click', () => {
-    document.getElementById('boot-screen').classList.add('hidden'); // Hide the boot screen
-    document.getElementById('lock-screen').classList.add('hidden');
-    document.getElementById('main-ui').classList.remove('hidden');
+    const bootScreen = document.getElementById('boot-screen');
+    const lockScreen = document.getElementById('lock-screen');
+    const mainUI = document.getElementById('main-ui');
+
+    if (bootScreen && lockScreen && mainUI) {
+        bootScreen.classList.add('hidden'); // Hide the boot screen
+        lockScreen.classList.add('hidden');
+        mainUI.classList.remove('hidden');
+    } else {
+        console.error('One or more elements are missing.');
+    }
 });
 
 // Start menu functionality
